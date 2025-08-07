@@ -4,7 +4,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 
 # Load and clean data
-df = pd.read_csv("D:/AI-Project/titanic.csv")
+df = pd.read_csv("titanic.csv")
+
 df['Sex'] = df['Sex'].map({'male': 0, 'female': 1})
 df['Age'] = df['Age'].fillna(df['Age'].mean())
 
@@ -49,3 +50,4 @@ if st.button("Predict"):
     result = "Survived 🟢" if prediction[0] == 1 else "Did Not Survive 🔴"
     st.subheader(f"Prediction: {result}")
     st.write(f"Probability of Survival: {proba:.2%}")
+
